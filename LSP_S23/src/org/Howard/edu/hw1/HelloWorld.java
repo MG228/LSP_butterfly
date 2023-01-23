@@ -1,3 +1,7 @@
+/**
+* Name: Maya Griffin
+*/
+
 package org.Howard.edu.hw1;
 
 public class HelloWorld {
