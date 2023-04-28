@@ -50,17 +50,35 @@ public class SongDataBase {
 		db.Asong("Heard It All Before", "RnB");
 		db.Asong("Best in Me", "Gospel");
 		
-		Set<String> Rap = db.songg("Rap");
-		Assert.assertTrue(Rap.contains("Black"));
+		Set<String> Rapsong = db.songg("Rap");
+		Assert.assertTrue(Rapsong.contains("Black"));
 		
-		Set<String> RnB = db.songg("RnB");
-		Assert.assertTrue(RnB.contains("Heard It All Before"));
+		Set<String> RnBsong = db.songg("RnB");
+		Assert.assertTrue(RnBsong.contains("Heard It All Before"));
 		
-		Set<String> Gospel = db.songg("Gospel");
-		Assert.assertTrue(Gospel.contains("Best in Me"));
+		Set<String> Gospelsong = db.songg("Gospel");
+		Assert.assertTrue(Gospelsong.contains("Best in Me"));
 	}
 	
-	
+    @Test
+    public void testsongg() {
+    	SongDataBase db = new SongDataBase();
+		db.Asong("Black", "Rap");
+		db.Asong("Heard It All Before", "RnB");
+		db.Asong("Best in Me", "Gospel");
+
+        Set<String> Rapsong = db.songg("Rap");
+        Assert.assertEquals(1, Rapsong.size());
+
+        Set<String> RnBsong = db.songg("RnB");
+        Assert.assertEquals(1, RnBsong.size());
+        
+        Set<String> Gospelsong = db.songg("Gospel");
+        Assert.assertEquals(1, Gospelsong.size());
+
+        
+        
+    }
 	
 	
 	
