@@ -12,5 +12,6 @@ import java.util.Map;
 
 
 public class SongDataBase {
-
+	private Map<String, HashSet<String>> map = new HashMap <String, HashSet<String>>();
 }
+
