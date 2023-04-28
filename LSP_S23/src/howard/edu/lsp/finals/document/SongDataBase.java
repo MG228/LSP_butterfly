@@ -20,7 +20,7 @@ public class SongDataBase {
 		HashSet<String> song = map.get(genre);
 		if (song == null) {
 			song = new HashSet<String>();
-			map.put(genre, song);
+			map.put(song, genre);
 		}
 		song.add(songtitle);
 	}
@@ -41,6 +41,23 @@ public class SongDataBase {
 			}
 		}
 		return null;
+	}
+	
+	@Test
+	public void testAsong() {
+		SongDataBase db = new SongDataBase();
+		db.Asong("Black", "Rap");
+		db.Asong("Heard It All Before", "RnB");
+		db.Asong("Best in Me", "Gospel");
+		
+		Set<String> Rap = db.songg("Rap");
+		Assert.assertTrue(Rap.contains("Black"));
+		
+		Set<String> RnB = db.songg("RnB");
+		Assert.assertTrue(RnB.contains("Heard It All Before"));
+		
+		Set<String> Gospel = db.songg("Gospel");
+		Assert.assertTrue(Gospel.contains("Best in Me"));
 	}
 	
 	
