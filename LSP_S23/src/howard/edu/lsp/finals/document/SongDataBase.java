@@ -46,9 +46,9 @@ public class SongDataBase {
 	@Test
 	public void testAsong() {
 		SongDataBase db = new SongDataBase();
-		db.Asong("Black", "Rap");
-		db.Asong("Heard It All Before", "RnB");
-		db.Asong("Best in Me", "Gospel");
+		db.ASong("Black", "Rap");
+		db.ASong("Heard It All Before", "RnB");
+		db.ASong("Best in Me", "Gospel");
 		
 		Set<String> Rapsong = db.songg("Rap");
 		Assert.assertTrue(Rapsong.contains("Black"));
@@ -63,9 +63,9 @@ public class SongDataBase {
     @Test
     public void testsongg() {
     	SongDataBase db = new SongDataBase();
-		db.Asong("Black", "Rap");
-		db.Asong("Heard It All Before", "RnB");
-		db.Asong("Best in Me", "Gospel");
+		db.ASong("Black", "Rap");
+		db.ASong("Heard It All Before", "RnB");
+		db.ASong("Best in Me", "Gospel");
 
         Set<String> Rapsong = db.songg("Rap");
         Assert.assertEquals(1, Rapsong.size());
@@ -75,9 +75,20 @@ public class SongDataBase {
         
         Set<String> Gospelsong = db.songg("Gospel");
         Assert.assertEquals(1, Gospelsong.size());
-
         
-        
+    }
+    
+    @Test
+    public void testgenresong() {
+    	SongDataBase db = new SongDataBase();
+		db.ASong("Black", "Rap");
+		db.ASong("Heard It All Before", "RnB");
+		db.ASong("Best in Me", "Gospel");
+		
+		Assert.assertEquals(db.genresong("Black"), "Rap");
+		Assert.assertEquals(db.genresong("Heard It All Before"), "RnB");
+		Assert.assertEquals(db.genresong("Best in Me"), "Gospel");
+		
     }
 	
 	
