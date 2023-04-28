@@ -9,6 +9,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.HashMap;
 import java.util.Map;
+import org.junit.Test;
+import static org.junit.Assert;
 
 
 public class SongDataBase {
@@ -31,8 +33,14 @@ public class SongDataBase {
 		return song;
 	}
 	
-	public String genresong(String sTitle) {
-	
+	// 
+	public String genresong(String songT) {
+		for (Map.Entry<String, HashSet<String>> entry: map.entrySet()) {
+			if (entry.getValue().contains(songT)) {
+				return entry.getKey();
+			}
+		}
+		return null;
 	}
 	
 	
