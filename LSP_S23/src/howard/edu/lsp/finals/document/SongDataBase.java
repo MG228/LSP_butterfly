@@ -23,10 +23,17 @@ public class SongDataBase {
 		song.add(songtitle);
 	}
 	
+	public Set<String> songg(String genre) {
+		HashSet<String> song = map.get(genre);
+		if (song == null) {
+			song = new HashSet<String>();
+		}
+		return song;
+	}
 	
+	public String genresong(String sTitle) {
 	
-	
-	
+	}
 	
 	
 	
